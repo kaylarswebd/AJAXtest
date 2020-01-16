@@ -1,4 +1,4 @@
 var request = new XMLHttpRequest();
 request.open('GET','data.txt',false);
-
-console.log();
+request.send();
+console.log(request);
