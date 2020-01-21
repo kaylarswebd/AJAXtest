@@ -1,13 +1,16 @@
-for (var i = 0; i < 100; i++) {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'data.txt', false);
-
-    request.readystatechange = function () {
-        // document.getElementById('demo').innerHTML = request.responseText;
-        if ((request.status === 200) && (request.readyState === 4)) {
-            console.log(request);
-            document.writeln(request.responseText);
-        }
-    }
-    request.send();
+var request;
+if (window.XMLHttpRequest) {
+	request = new XMLHttpRequest();
+} else {
+	request = new ActiveXObject("Microsoft.XMLHTTP");
 }
+request.open('GET', 'data.txt');
+request.onreadystatechange = function() {
+	if ((request.readyState===4) && (request.status===200)) {
+		var modify = document.getElementsByTagName('ul')
+		[1].getElementsByTagName('li');
+		modify[2].innerHTML = request.responceText;
+		}
+	}
+}
+request.send();
