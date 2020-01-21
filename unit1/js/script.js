@@ -12,5 +12,4 @@ request.onreadystatechange = function() {
 		modify[2].innerHTML = request.responceText;
 		}
 	}
-}
 request.send();
